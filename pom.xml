@@ -7,7 +7,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>TiPi - Smple application</name>
+    <name>TiPi - Sample application</name>
     <description>TiPi - Transaction Processing Engine</description>
     <url>http://www.sharedvd.ch</url>
 

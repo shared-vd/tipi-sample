@@ -4,6 +4,7 @@ import ch.sharedvd.tipi.engine.client.TipiFacade;
 import ch.sharedvd.tipi.engine.client.VariableMap;
 import ch.sharedvd.tipi.engine.query.TipiQueryFacade;
 import ch.sharedvd.tipi.engine.runner.TipiStarter;
+import ch.sharedvd.tipi.sample.proc.SampleTopProcess;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,12 +34,12 @@ public class TipiSampleApplication implements CommandLineRunner {
         log.info("Running TiPi sample ...");
 
         final VariableMap vars = new VariableMap();
+        vars.put("BLA", "BLI");
         long pid = tipiFacade.launch(SampleTopProcess.class, vars);
         while (tipiFacade.isRunning(pid)) {
+            log.info("Process still running ...");
             Thread.sleep(500);
         }
-
-        // We cleanly stop TiPi
-        //tipiStarter.stop();
+        log.info("Process stopped.");
     }
 }
